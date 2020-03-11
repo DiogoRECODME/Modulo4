@@ -38,6 +38,14 @@ namespace Ficha07
                         exercicioIv();
                         break;
 
+                    case 1.6:
+                        exercicioIvi();
+                        break;
+
+                    case 1.7:
+                        exercicioIvii();
+                        break;
+
                     default:
                         Console.Clear();
                         Environment.Exit(0);
@@ -181,6 +189,119 @@ namespace Ficha07
             }
 
             Console.ReadKey();
+        }
+
+        static void exercicioIvi()
+        {
+            Console.Clear();
+            Console.WriteLine("[1-6]\n");
+
+            int floor;
+
+            Console.Write("Selecione o andar:\t");
+            floor = int.Parse(Console.ReadLine());
+
+            switch (floor)
+            {
+                case 3:
+                case 5:
+                    Console.WriteLine("\n\n[RESULTADO]--> Piso indisponível");
+                    break;
+
+                case -2:
+                case -1:
+                case 0:
+                case 1:
+                case 2:
+                case 4:
+                case 6:
+                    Console.WriteLine($"\n\n[RESULTADO]--> Indo para o piso {floor}");
+                    break;
+
+                default:
+                    Console.WriteLine("\n\n[RESULTADO]--> Piso não existe");
+                    break;
+            }
+
+            //Console.WriteLine($"{0}", floor == 3 ? "Piso indisponível" :
+            //                          floor == 5 ? "Piso indisponível" :
+            //                          floor == -2 ? "Indo para o piso " + floor :
+            //                          floor == -1 ? "Indo para o piso " + floor :
+            //                          floor == 0  ? "Indo para o piso " + floor :
+            //                          floor == 1  ? "Indo para o piso " + floor :
+            //                          floor == 2  ? "Indo para o piso " + floor :
+            //                          floor == 4  ? "Indo para o piso " + floor :
+            //                          floor == 6  ? "Indo para o piso " + floor : "Piso não existente");
+
+            Console.ReadKey();
+        }
+
+        static void exercicioIvii()
+        {
+            //Console.Clear();
+            //Console.WriteLine("[1-7]\n");
+
+            double sum = 0;
+
+            #region FOR LOOP
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Clear();
+                Console.WriteLine("[1-7]\n");
+                Console.Write($"Introduza o número {i + 1}:\t");
+                sum += double.Parse(Console.ReadLine());
+            }
+
+            Console.Clear();
+            Console.WriteLine("[1-7]\n");
+            sum = sum % 1 == 0 ? Math.Round(sum, 0) : Math.Round(sum, 2);
+            Console.WriteLine($"\n\n[RESULTADO]--> {sum}");
+            Console.ReadKey();
+
+            #endregion
+
+            #region WHILE LOOP
+
+            sum = 0;
+            int j = 0;
+            while (j < 10)
+            {
+                Console.Clear();
+                Console.WriteLine("[1-7]\n");
+                Console.Write($"Introduza o número {j + 1}:\t");
+                sum += double.Parse(Console.ReadLine());
+                j++;
+            }
+
+            Console.Clear();
+            Console.WriteLine("[1-7]\n");
+            sum = sum % 1 == 0 ? Math.Round(sum, 0) : Math.Round(sum, 2);
+            Console.WriteLine($"\n\n[RESULTADO]--> {sum}");
+            Console.ReadKey();
+
+            #endregion
+
+            #region DO WHILE LOOP
+
+            sum = 0;
+            int x = 0;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("[1-7]\n");
+                Console.Write($"Introduza o número {x + 1}:\t");
+                sum += double.Parse(Console.ReadLine());
+                x++;
+            } while (x < 10);
+
+            Console.Clear();
+            Console.WriteLine("[1-7]\n");
+            sum = sum % 1 == 0 ? Math.Round(sum, 0) : Math.Round(sum, 2);
+            Console.WriteLine($"\n\n[RESULTADO]--> {sum}");
+            Console.ReadKey();
+
+            #endregion
         }
     }
 }
