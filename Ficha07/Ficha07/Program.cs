@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Text;
 
 namespace Ficha07
 {
@@ -44,6 +45,18 @@ namespace Ficha07
 
                     case 1.7:
                         exercicioIvii();
+                        break;
+
+                    case 1.8:
+                        exercicioIviii();
+                        break;
+
+                    case 1.9:
+                        exercicioIix();
+                        break;
+
+                    case 10:
+                        exercicioIx();
                         break;
 
                     default:
@@ -247,17 +260,10 @@ namespace Ficha07
 
             for (int i = 0; i < 10; i++)
             {
-                Console.Clear();
-                Console.WriteLine("[1-7]\n");
-                Console.Write($"Introduza o número {i + 1}:\t");
-                sum += double.Parse(Console.ReadLine());
+                sumExerciseIvii(ref sum, i);
             }
 
-            Console.Clear();
-            Console.WriteLine("[1-7]\n");
-            sum = sum % 1 == 0 ? Math.Round(sum, 0) : Math.Round(sum, 2);
-            Console.WriteLine($"\n\n[RESULTADO]--> {sum}");
-            Console.ReadKey();
+            afterLoopsExerciseIvii(ref sum);
 
             #endregion
 
@@ -267,18 +273,11 @@ namespace Ficha07
             int j = 0;
             while (j < 10)
             {
-                Console.Clear();
-                Console.WriteLine("[1-7]\n");
-                Console.Write($"Introduza o número {j + 1}:\t");
-                sum += double.Parse(Console.ReadLine());
+                sumExerciseIvii(ref sum, j);
                 j++;
             }
 
-            Console.Clear();
-            Console.WriteLine("[1-7]\n");
-            sum = sum % 1 == 0 ? Math.Round(sum, 0) : Math.Round(sum, 2);
-            Console.WriteLine($"\n\n[RESULTADO]--> {sum}");
-            Console.ReadKey();
+            afterLoopsExerciseIvii(ref sum);
 
             #endregion
 
@@ -288,20 +287,183 @@ namespace Ficha07
             int x = 0;
             do
             {
-                Console.Clear();
-                Console.WriteLine("[1-7]\n");
-                Console.Write($"Introduza o número {x + 1}:\t");
-                sum += double.Parse(Console.ReadLine());
+                sumExerciseIvii(ref sum, x);
                 x++;
             } while (x < 10);
 
+            afterLoopsExerciseIvii(ref sum);
+
+            #endregion
+        }
+
+        static void exercicioIviii()
+        {
+            double price = 0,
+                    total = 0;
+            int quant = 0;
+            string prod = string.Empty,
+                    output = string.Empty;
+
+            //for(int i = 0; i < 5; i++)
+            //{
+            //    productHandlingExerciseIviii(ref prod, ref price, ref quant, ref total, ref output);
+            //}
+
+            do
+            {
+                productHandlingExerciseIviii(ref prod, ref price, ref quant, ref total, ref output);
+
+                header(1, 8);
+
+                Console.WriteLine("[1] - Continuar\n" +
+                                  "[0] - Terminar");
+            } while (Console.ReadKey().KeyChar != '0');
+
+            header(1, 8);
+            Console.WriteLine(output);
+            Console.WriteLine($"\nO total das compras foi {total} €");
+
+            Console.ReadKey();
+        }
+
+        static void exercicioIix()
+        {
+            int num,
+                length = 0;
+
+            double avg = 0;
+
+            while(true) 
+            { 
+                header(1, 9);
+
+                Console.Write("Introduza um número [0 - STOP]:\t");
+                num = int.Parse(Console.ReadLine());
+
+                if (num == 0) break;
+
+                length++;
+                avg += num;
+            }
+
+            header(1, 9);
+
+            Console.WriteLine($"A média dos números introduzidos é {decimalHousesFormatter(avg / length)}");
+
+            Console.ReadKey();
+        }
+
+        static void exercicioIx()
+        {
+            double num,
+                    total;
+            char op;
+
+            for(int i = 0; i < 2; i++)
+            {
+                
+
+                Console.Write($"Introduza o número {i + 1}:\t");
+                num = double.Parse(Console.ReadLine());
+
+                if (i == 1) break;
+                else total = num;
+            }
+
+            header(1, 10);
+
+            Console.WriteLine("Escolha uma operação\n" +
+                              "[+] Soma" +
+                              "[-] Subtração" +
+                              "[*] Multiplicação" +
+                              "[/] Divisão" +
+                              "[%] Resto da divisão");
+
+            switch (Console.ReadKey().KeyChar)
+            {
+                case '+':
+                    header(1, 10);
+                    Console.WriteLine($"Operação não existe!");
+                    break;
+                case '-':
+                    header(1, 10);
+                    Console.WriteLine($"Operação não existe!");
+                    break;
+                case 'X':
+                    header(1, 10);
+                    Console.WriteLine($"Operação não existe!");
+                    break;
+                case '/':
+                    header(1, 10);
+                    Console.WriteLine($"Operação não existe!");
+                    break;
+                case '%':
+                    header(1, 10);
+                    Console.WriteLine($"Operação não existe!");
+                    break;
+                default:
+                    header(1, 10);
+                    Console.WriteLine($"Operação não existe!");
+                    break;
+            }
+
+            Console.ReadKey();
+        }
+
+        #region PRIVATE METHODS
+
+        private static void header(int num, int alinea)
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.Clear();
+            Console.WriteLine($"[{num}-{alinea}]\n");
+        }
+
+        private static void sumExerciseIvii(ref double sum, in int i)
+        {
+            Console.Clear();
+            Console.WriteLine("[1-7]\n");
+            Console.Write($"Introduza o número {i + 1}:\t");
+            sum += double.Parse(Console.ReadLine());
+        }
+
+        private static void afterLoopsExerciseIvii(ref double sum)
+        {
             Console.Clear();
             Console.WriteLine("[1-7]\n");
             sum = sum % 1 == 0 ? Math.Round(sum, 0) : Math.Round(sum, 2);
             Console.WriteLine($"\n\n[RESULTADO]--> {sum}");
             Console.ReadKey();
-
-            #endregion
         }
+
+        private static double decimalHousesFormatter(in double num)
+        {
+            return num % 1 == 0 ? Math.Round(num, 0) : Math.Round(num, 2);
+        }
+
+        private static void productHandlingExerciseIviii(ref string prod,
+                                                         ref double price,
+                                                         ref int quant,
+                                                         ref double total,
+                                                         ref string output)
+        {
+            header(1, 8);
+
+            Console.Write($"Introduza um produto:\t");
+            prod = Console.ReadLine();
+
+            Console.Write($"Introduza o preço de cada {prod} [€]:\t");
+            price = decimalHousesFormatter(double.Parse(Console.ReadLine()));
+            
+            Console.Write($"Introduza a quantidade de {prod}:\t");
+            quant = int.Parse(Console.ReadLine());
+
+            total += decimalHousesFormatter((price * quant));
+            output += ($"{quant} {prod} custam {(price * quant)} €\n");
+
+            Console.ReadKey();
+        }
+
+        #endregion
     }
 }
