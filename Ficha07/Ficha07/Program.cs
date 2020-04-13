@@ -59,6 +59,10 @@ namespace Ficha07
                         exercicioIx();
                         break;
 
+                    case 1.11:
+                        exercicioIxi();
+                        break;
+
                     default:
                         Console.Clear();
                         Environment.Exit(0);
@@ -407,6 +411,27 @@ namespace Ficha07
                     break;
             }
 
+            Console.ReadKey();
+        }
+
+        static void exercicioIxi()
+        {
+            header(1, 11);
+
+            Console.Write("Introduza um caracter:\t");
+            var c = Console.ReadKey().Key;
+
+            header(1, 11);
+
+            for(int i = 0; i < 3; i++)
+            {
+                for (int x = 0; x < 3; x++)
+                {
+                    Console.Write(c);
+                }
+                Console.WriteLine();
+            }
+                
             Console.ReadKey();
         }
 

@@ -1,13 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ficha12\Ficha12.csproj" />
-    <ProjectReference Include="..\Ficha13\Ficha13.csproj" />
+    <ProjectReference Include="..\UsefulFunctions\UsefulFunctions.csproj" />
   </ItemGroup>
 
 </Project>
